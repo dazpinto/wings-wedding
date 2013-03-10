@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Names:
+  = @rsvp.names
+%p
+  %b Coming:
+  = @rsvp.coming
+%p
+  %b Guests:
+  = @rsvp.guests
+
+= link_to 'Edit', edit_rsvp_path(@rsvp)
+\|
+= link_to 'Back', rsvps_path

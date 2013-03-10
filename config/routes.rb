@@ -1,4 +1,6 @@
 Wedding::Application.routes.draw do
+  resources :rsvps
+
   resources :song_requests
 
   # The priority is based upon order of creation:

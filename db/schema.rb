@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309160455) do
+ActiveRecord::Schema.define(:version => 20130310172747) do
+
+  create_table "rsvps", :force => true do |t|
+    t.string   "names"
+    t.boolean  "coming"
+    t.integer  "guests"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "song_requests", :force => true do |t|
     t.string   "artist"
