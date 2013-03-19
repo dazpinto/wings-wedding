@@ -9,7 +9,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :venue, 'Venue', venue_path
     primary.item :photos, 'Photos', photos_path
     primary.item :contact, 'Contact', contact_path
-    primary.item :rsvps, 'RSVP', rsvps_path
+    primary.item :rsvps, 'RSVP', new_rsvp_path
   end
 
 end

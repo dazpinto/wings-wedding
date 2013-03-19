@@ -1,13 +1,28 @@
-.jumbotron
-  %h1 Andrew & Wing are getting married on 04 June 2013
+- content_for :before_content do
+  #myCarousel.carousel.slide
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+      %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+      %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+    / Carousel items
+    .carousel-inner
+      .active.item
+        %img{:alt => "", :src => "http://lorempixel.com/1050/300"}/
+      .item
+        %img{:alt => "", :src => "http://lorempixel.com/1050/301"}/
+      .item
+        %img{:alt => "", :src => "http://lorempixel.com/1050/302"}/
+    / Carousel nav
+    %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} ‹
+    %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} ›
+  .carousel-caption
+    %h1 Andrew & Wing are getting married on 04 June 2013
 
-.featurette
-  %h3 Hello family and friends!
-  %p We are so happy and excited to share our special day with you! We have created this website to keep everyone updated with the information that will be useful while we plan our wedding. We have people scattered all over the country, and we know you all have busy lives. It means so much to have all of our family and friends loving and supporting us.
-  %p We look forward to seeing you on 4th June!
-  %p
+.jumbotron.max-width
+  %h1 Hello family and friends!
+  %p.lead We are so happy and excited to share our special day with you! We have created this website to keep everyone updated with the information that will be useful while we plan our wedding. We have people scattered all over the country, and we know you all have busy lives. It means so much to have all of our family and friends loving and supporting us.
+  %p.lead We look forward to seeing you on 4th June!
+  %p.from
     Love,
     %br
     Andrew & Wing
-    %br
-    XX Days Until Wedding

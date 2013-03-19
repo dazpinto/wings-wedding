@@ -20,9 +20,12 @@
           = link_to "Andrew & Wing's wedding", root_path, :class=>'brand'
           .container.nav-collapse
             = render_navigation
+            %p.pull-right.navbar-text.days_until
+              XX Days Until Wedding
+
+    = yield :before_content
 
     .container-fluid
-
       .row-fluid
         = bootstrap_flash
         = yield
