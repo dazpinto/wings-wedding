@@ -1,23 +1,25 @@
-%h1 Listing rsvps
-
-%table
-  %tr
-    %th Names
-    %th Coming
-    %th Guests
-    %th
-    %th
-    %th
-
-  - @rsvps.each do |rsvp|
+- model_class = Rsvp
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
     %tr
-      %td= rsvp.names
-      %td= rsvp.coming
-      %td= rsvp.guests
-      %td= link_to 'Show', rsvp
-      %td= link_to 'Edit', edit_rsvp_path(rsvp)
-      %td= link_to 'Destroy', rsvp, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:names)
+      %th= model_class.human_attribute_name(:coming)
+      %th= model_class.human_attribute_name(:guests)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @rsvps.each do |rsvp|
+      %tr
+        %td= link_to rsvp.id, rsvp_path(rsvp)
+        %td= rsvp.names
+        %td= rsvp.coming
+        %td= rsvp.guests
+        %td=l rsvp.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_rsvp_path(rsvp), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), rsvp_path(rsvp), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-%br
-
-= link_to 'New Rsvp', new_rsvp_path
+= link_to t('.new', :default => t("helpers.links.new")), new_rsvp_path, :class => 'btn btn-primary'

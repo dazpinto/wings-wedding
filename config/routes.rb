@@ -1,4 +1,12 @@
 Wedding::Application.routes.draw do
+  get "pages/home"
+
+  get "pages/venue"
+
+  get "pages/photos"
+
+  get "pages/contact"
+
   resources :rsvps
 
   resources :song_requests

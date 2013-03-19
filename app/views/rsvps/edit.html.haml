@@ -1,7 +1,4 @@
-%h1 Editing rsvp
-
-= render 'form'
-
-= link_to 'Show', @rsvp
-\|
-= link_to 'Back', rsvps_path
+- model_class = Rsvp
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human
+= render :partial => "form"
