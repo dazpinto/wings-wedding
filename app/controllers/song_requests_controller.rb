@@ -2,7 +2,9 @@ class SongRequestsController < ApplicationController
   # GET /song_requests
   # GET /song_requests.json
   def index
-    @song_requests = SongRequest.all
+    @song_requests = SongRequest.order("created_at DESC").all
+
+    @song_request = SongRequest.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +46,7 @@ class SongRequestsController < ApplicationController
 
     respond_to do |format|
       if @song_request.save
-        format.html { redirect_to @song_request, notice: 'Song request was successfully created.' }
+        format.html { redirect_to song_requests_path, notice: 'Song request was successfully created.' }
         format.json { render json: @song_request, status: :created, location: @song_request }
       else
         format.html { render action: "new" }

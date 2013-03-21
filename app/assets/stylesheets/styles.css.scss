@@ -50,6 +50,11 @@ body{
   line-height: 36px;
 }
 
+.index_page{
+  .control-label{
+    display: none;
+  }
+}
 .days_until{
   font-size: 16px;
 }
