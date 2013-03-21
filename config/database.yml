@@ -20,7 +20,8 @@ test:
 
 production:
   adapter: postgresql
-  database: triplea3_wedding
-  username: triplea3_wedding
-  password: piddling3665%klutz's
+  host: ec2-54-243-125-2.compute-1.amazonaws.com
+  database: db003q12ju4vsd
+  username: rectimcwvbwhag
+  password: -FSVnblyt5fqb41616IRCXrCZy
   timeout: 5000
