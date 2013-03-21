@@ -63,8 +63,8 @@
 .carousel-caption h1,
 .carousel-caption .lead {
   margin: 0;
-  color: #fff;
-  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+  color: #DBDBDB;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .6);
 }
 .carousel-caption .btn {
   margin-top: 10px;

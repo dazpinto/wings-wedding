@@ -3,20 +3,45 @@
   margin-bottom: -20px;
 }
 .carousel-caption{
-  position: absolute;
-  left: 70px;
+  position: relative;
+  left: 45px;
   margin-top: 0;
-  top: 225px;
+  top: -87px;
 }
 
 .carousel .item {
-  height: 300px;
+  height: 350px;
+  width: 100%;
+  background: {
+    position: center center;
+    repeat: no-repeat;
+  }
+  &.banner_1{
+    background-image: image-url('banner1.jpg');
+    background-position: center left;
+  }
+  &.banner_2{
+    background-image: image-url('banner2.jpg');
+  }
+  &.banner_3{
+    background-image: image-url('banner3.jpg');
+    background-position: center right;
+  }
 }
 
-.max-width{
+.jumbotron{
+  margin-top: 0;
+}
+
+body{
+  background-color: #F5F5F5;
+}
+
+.max_width{
   margin-left: auto;
   margin-right: auto;
-  max-width: 1000px;
+  max-width: 1300px;
+  background: white;
 }
 
 .from{

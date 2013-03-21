@@ -13,20 +13,22 @@
 
 
   %body
-    .navbar.navbar-fluid-top
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-          = link_to "Andrew & Wing's wedding", root_path, :class=>'brand'
-          .container.nav-collapse
-            = render_navigation
-            %p.pull-right.navbar-text.days_until
-              XX Days Until Wedding
+    .max_width
+      .navbar.navbar-fluid-top
+        .navbar-inner
+          .container-fluid
+            %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            = link_to "Andrew & Wing's wedding", root_path, :class=>'brand'
+            .container.nav-collapse
+              = render_navigation
+              %p.pull-right.navbar-text.days_until
+                = distance_of_time_in_words(Time.now, Time.parse("6/4/2013"))
+                Until Wedding
 
-    = yield :before_content
+      = yield :before_content
 
-    .container-fluid
-      .row-fluid
-        = bootstrap_flash
-        = yield
+      .container-fluid
+        .row-fluid
+          = bootstrap_flash
+          = yield
     = javascript_include_tag "application"
