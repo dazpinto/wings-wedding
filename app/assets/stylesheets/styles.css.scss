@@ -62,24 +62,17 @@ body{
   font-size: 16px;
 }
 
-.map, #map-canvas{
-  height: 500px;
-  width: 500px;
+#map-canvas{
+  @include size(400px 400px)
 }
 
-.map
-{  @include box-shadow(2px 2px 22px 2px hsla(0, 0, 0, 0.8));
-  border-radius: 500px 500px 500px 500px;
-  border: 20px solid white;
+.map{
+  @include box-shadow(2px 2px 22px 2px hsla(0, 0, 0, 0.8));
+  border-radius: 10px 10px 10px 10px;
+  // border: 10px solid white;
   margin: 10px 10px 30px 20px;
   float: right;
 }
-#map-canvas{
-  -webkit-mask-image: image-url("circleMask.png");
-  -webkit-mask-size: 500px 500px;
-  -webkit-mask-position: 0;
-}
-
 
 
 
