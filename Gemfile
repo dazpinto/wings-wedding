@@ -13,6 +13,9 @@ group :production do
   gem 'pg'
 end
 
+
+gem 'bourbon'
+
 gem 'haml'
 gem 'haml-rails'
 
