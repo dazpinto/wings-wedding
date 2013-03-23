@@ -74,7 +74,19 @@ body{
   float: right;
 }
 
-
+body.mask{
+  .map{
+    border-radius: 400px 400px 400px 400px;
+    border: 20px solid white;
+    margin: 10px 10px 30px 20px;
+    float: right;
+  }
+  #map-canvas{
+    -webkit-mask-image: image-url("circleMask.png");
+    -webkit-mask-size: 400px 400px;
+    -webkit-mask-position: 0;
+  }
+}
 
 
 

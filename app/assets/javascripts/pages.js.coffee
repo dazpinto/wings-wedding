@@ -28,6 +28,9 @@ $ ->
 
   if $('#map-canvas').length > 0
 
+    if document.documentElement.style.WebkitMask isnt `undefined`
+      $('body').addClass('mask')
+
     map = new google.maps.Map(document.getElementById("map-canvas"),
       center: new google.maps.LatLng(53.801754, -1.553380)
       zoom: 15
