@@ -6,8 +6,7 @@
 %ul
   - @song_requests.each do |song_request|
     %li
-      %strong= song_request.artist
-      = " - #{song_request.title}"
+      %h4= "#{song_request.artist} - #{song_request.title}"
       %em.muted
         - unless song_request.suggested_by.blank?
           = "Suggested by #{song_request.suggested_by}, "
