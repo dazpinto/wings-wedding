@@ -43,13 +43,14 @@ class SongRequestsController < ApplicationController
   # POST /song_requests.json
   def create
     @song_request = SongRequest.new(params[:song_request])
+    @song_requests = SongRequest.order("created_at DESC").all
 
     respond_to do |format|
       if @song_request.save
         format.html { redirect_to song_requests_path, notice: 'Song request was successfully created.' }
         format.json { render json: @song_request, status: :created, location: @song_request }
       else
-        format.html { render action: "new" }
+        format.html { render action: "index" }
         format.json { render json: @song_request.errors, status: :unprocessable_entity }
       end
     end
