@@ -1,13 +1,13 @@
 - content_for :before_content do
   #myCarousel.carousel.slide
     %ol.carousel-indicators
-      %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
-      %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+      %li{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+      %li.active{"data-slide-to" => "1", "data-target" => "#myCarousel"}
       %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
     / Carousel items
     .carousel-inner
-      .active.item.banner_1
-      .item.banner_2
+      .item.banner_1
+      .item.banner_2.active
       .item.banner_3
     / Carousel nav
     %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} ‹

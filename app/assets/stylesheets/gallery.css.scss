@@ -7,16 +7,28 @@
 }
 
 /* Taken from http://www.zurb.com/article/305/easily-turn-your-images-into-polaroids-wi */
-ul.gallery{
-  margin: 30px 0 0 0;
+ul#gallery{
+  margin: 30px 0;
   list-style: none;
   padding-left: 0;
   li{
     display: inline-block;
+    @include transition (width 1s ease-in 5s, height 1s ease-in 5s, opacity 1s ease-out);
+
+    &.cat_live a .test_image{background-color: green;}
+    &.cat_laugh a .test_image{background-color: yellow;}
+    &.cat_love a .test_image{background-color: red;}
+
+    &.hideyness{
+      opacity: 0;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+
     &:nth-child(even) a {
       @include transform(rotate(2deg));
     }
-
     &:nth-child(3n) a {
       @include transform(none);
       position: relative;
