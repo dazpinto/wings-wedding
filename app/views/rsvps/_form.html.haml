@@ -6,15 +6,18 @@
   .control-group
     = f.label :coming, "Are you coming to the wedding?",{:class => 'control-label'}
     .controls
-      %button#not_going.btn.btn-danger.btn-large.icon-remove
-        No
-      %button#going.btn.btn-success.btn-large.icon-ok
-        Yes
+      .btn-group
+        %button#not_going.btn.btn-large
+          %i.icon-remove
+            No
+        %button#going.btn.btn-large
+          %i.icon-ok
+            Yes
       = f.check_box :coming, :class => 'check_box'
   .control-group
     = f.label :guests, "How many guests will you be bringing?",:class => 'control-label'
     .controls
       = f.number_field :guests, :class => 'number_field'
-  .form-actions
-    = f.submit 'Submit', :class => 'btn btn-primary'
-    / = link_to t('.cancel', :default => t("helpers.links.cancel")), rsvps_path, :class => 'btn'
+  .control-group
+    .controls
+      = f.submit 'Submit', :class => 'btn btn-primary'
