@@ -56,6 +56,7 @@ ul#gallery{
     a{
       @include transform(rotate(-2deg));
       @include transition (all 0.75s ease-in-out);
+      @include box-shadow(2px 2px 10px rgba(0,0,0,.8));
       padding: 13px;
       background-color: white;
       display: block;
@@ -63,7 +64,6 @@ ul#gallery{
       line-height: 3;
       color: black;
       text-decoration: none;
-      @include box-shadow(2px 2px 10px rgba(0,0,0,.8));
       &:after{
         content: attr(title);
       }
@@ -72,8 +72,8 @@ ul#gallery{
         position: relative;
         z-index: 5;
       }
-      &:active, &:focus{
-        @include transform(scale(4));
+      &.open{
+        @include transform(scale(2));
         position: relative;
         z-index: 5;
       }

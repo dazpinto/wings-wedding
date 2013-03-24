@@ -13,3 +13,11 @@ $ ->
     e.preventDefault();
     $('#gallery li:not(.cat_love)').addClass('hideyness')
     $('#gallery li.cat_love').removeClass('hideyness')
+
+  $('a', '#gallery').click (e) ->
+    e.preventDefault()
+    if $(@).hasClass('open')
+      $(@).removeClass('open')
+    else
+      $('.open','#gallery').removeClass('open')
+      $(@).addClass('open')
