@@ -7,12 +7,12 @@
     = f.label :coming, "Are you coming to the wedding?",{:class => 'control-label'}
     .controls
       .btn-group
-        %button#not_going.btn.btn-large
-          %i.icon-remove
-            No
         %button#going.btn.btn-large
           %i.icon-ok
             Yes
+        %button#not_going.btn.btn-large
+          %i.icon-remove
+            No
       = f.check_box :coming, :class => 'check_box'
   .control-group
     = f.label :guests, "How many guests will you be bringing?",:class => 'control-label'

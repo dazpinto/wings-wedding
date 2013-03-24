@@ -44,6 +44,7 @@ class RsvpsController < ApplicationController
 
     respond_to do |format|
       if @rsvp.save
+        NotificationsMailer.rsvp_received(@rsvp).deliver
         format.html { redirect_to @rsvp, notice: 'Rsvp was successfully created.' }
         format.json { render json: @rsvp, status: :created, location: @rsvp }
       else
