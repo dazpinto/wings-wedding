@@ -72,6 +72,11 @@ ul#gallery{
         position: relative;
         z-index: 5;
       }
+      &:active, &:focus{
+        @include transform(scale(4));
+        position: relative;
+        z-index: 5;
+      }
     }
 
   }

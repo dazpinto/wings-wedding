@@ -1,10 +1,10 @@
 Wedding::Application.routes.draw do
 
+  resources :contact_us, :only=>[:new, :create]
+
   get "pages/venue", :as=>'venue'
 
   get "pages/photos", :as=>'photos'
-
-  get "pages/contact", :as=>'contact'
 
   resources :rsvps
 

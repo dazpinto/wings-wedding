@@ -1,0 +1,23 @@
+%h1 Contact Us
+%p If you would like to get in touch for whatever reason, please fill out the form below. Thanks.
+
+= form_for @message, :url => contact_us_path, :html=>{:class=>'form-horizontal'} do |f|
+  .control-group
+    = f.label :name, :class=>'control-label'
+    .controls
+      = f.text_field :name, :class=>'input-xlarge'
+  .control-group
+    = f.label :email, :class=>'control-label'
+    .controls
+      = f.email_field :email, :class=>'input-xlarge'
+  .control-group
+    = f.label :subject, :class=>'control-label'
+    .controls
+      = f.text_field :subject, :class=>'input-xlarge'
+  .control-group
+    = f.label :body, :class=>'control-label'
+    .controls
+      = f.text_area :body, :rows=>'4', :class=>'input-xlarge'
+  .control-group
+    .controls
+      = f.submit "Send", :class=>'btn btn-primary'
