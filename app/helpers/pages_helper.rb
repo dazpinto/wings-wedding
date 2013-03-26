@@ -5,7 +5,9 @@ module PagesHelper
     capture_haml do
       haml_tag :li, {:class=>cate} do
         haml_tag :a, {:title=>title, :href=>link} do
-          haml_tag :div, :class=>'test_image'
+          haml_tag :div do
+            haml_tag :img, {:src=>asset_path("photos/#{link}"), :width=>200}
+          end
         end
       end
     end

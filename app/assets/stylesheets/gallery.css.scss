@@ -1,24 +1,13 @@
 @import 'bourbon';
 
-.test_image{
-  min-height: 200px;
-  min-width: 200px;
-  background-color: gray;
-}
-
 /* Taken from http://www.zurb.com/article/305/easily-turn-your-images-into-polaroids-wi */
 ul#gallery{
-  margin: 30px 0;
+  margin: 30px 30px 30px 60px;
   list-style: none;
   padding-left: 0;
   li{
     display: inline-block;
     @include transition (width 1s ease-in 5s, height 1s ease-in 5s, opacity 1s ease-out);
-
-    &.cat_live a .test_image{background-color: green;}
-    &.cat_laugh a .test_image{background-color: yellow;}
-    &.cat_love a .test_image{background-color: red;}
-
     &.hideyness{
       opacity: 0;
       height: 0;
@@ -54,6 +43,7 @@ ul#gallery{
       left: -5px;
     }
     a{
+      font-family: 'Short Stack', cursive;
       @include transform(rotate(-2deg));
       @include transition (all 0.75s ease-in-out);
       @include box-shadow(2px 2px 10px rgba(0,0,0,.8));
@@ -64,8 +54,12 @@ ul#gallery{
       line-height: 3;
       color: black;
       text-decoration: none;
+      width: 200px;
+      line-height: 1.5;
       &:after{
         content: attr(title);
+        margin-top: 10px;
+        display: block;
       }
       &:hover{
         @include transform(scale(1.25));
