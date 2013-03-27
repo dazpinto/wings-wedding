@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310172747) do
+ActiveRecord::Schema.define(:version => 20130327205056) do
 
   create_table "rsvps", :force => true do |t|
     t.string   "names"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(:version => 20130310172747) do
     t.integer  "guests"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "max_guests"
+    t.boolean  "filled_in"
+    t.integer  "code"
   end
 
   create_table "song_requests", :force => true do |t|
