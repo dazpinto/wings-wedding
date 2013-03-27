@@ -1,4 +1,7 @@
 class SongRequestsController < ApplicationController
+
+  before_filter :has_session, :except =>[:index]
+
   # GET /song_requests
   # GET /song_requests.json
   def index

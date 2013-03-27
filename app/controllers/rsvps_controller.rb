@@ -1,4 +1,7 @@
 class RsvpsController < ApplicationController
+
+  before_filter :has_session
+
   # GET /rsvps
   # GET /rsvps.json
   def index

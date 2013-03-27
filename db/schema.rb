@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327205056) do
+ActiveRecord::Schema.define(:version => 20130327224140) do
 
   create_table "rsvps", :force => true do |t|
     t.string   "names"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20130327205056) do
     t.boolean  "filled_in"
     t.integer  "code"
   end
+
+  add_index "rsvps", ["code"], :name => "index_rsvps_on_code", :unique => true
 
   create_table "song_requests", :force => true do |t|
     t.string   "artist"

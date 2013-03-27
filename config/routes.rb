@@ -1,5 +1,7 @@
 Wedding::Application.routes.draw do
 
+  resources :session, :only=>[:new,:create]
+
   resources :contact_us, :only=>[:new, :create]
 
   get "pages/venue", :as=>'venue'
