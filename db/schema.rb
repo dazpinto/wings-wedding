@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327224140) do
+ActiveRecord::Schema.define(:version => 20130330213936) do
 
   create_table "rsvps", :force => true do |t|
     t.string   "names"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20130327224140) do
     t.datetime "updated_at", :null => false
     t.integer  "max_guests"
     t.boolean  "filled_in"
-    t.integer  "code"
+    t.string   "code"
   end
 
   add_index "rsvps", ["code"], :name => "index_rsvps_on_code", :unique => true

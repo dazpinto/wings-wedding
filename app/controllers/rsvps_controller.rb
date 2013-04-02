@@ -61,6 +61,7 @@ class RsvpsController < ApplicationController
   # PUT /rsvps/1.json
   def update
     @rsvp = Rsvp.find(params[:id])
+    @rsvp.filled_in = true
 
     respond_to do |format|
       if @rsvp.update_attributes(params[:rsvp])
