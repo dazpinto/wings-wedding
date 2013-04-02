@@ -1,6 +1,6 @@
 Wedding::Application.routes.draw do
 
-  resources :session, :only=>[:new,:create]
+  resources :session, :only=>[:new,:create, :destroy]
 
   resources :contact_us, :only=>[:new, :create]
 
