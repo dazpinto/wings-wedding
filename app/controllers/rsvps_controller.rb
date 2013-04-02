@@ -1,6 +1,8 @@
 class RsvpsController < ApplicationController
 
-  before_filter :has_session
+  before_filter :has_session, :only => [:show, :reply]
+
+  before_filter :authenticate_admin!, :only => [:index, :create, :destroy]
 
   # GET /rsvps
   # GET /rsvps.json
@@ -38,6 +40,17 @@ class RsvpsController < ApplicationController
   # GET /rsvps/1/edit
   def edit
     @rsvp = Rsvp.find(params[:id])
+  end
+
+  def reply
+
+    puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    puts params[:session][:user_code]
+
+    if params[:session] && params[:session][:user_code]
+      @rsvp = Rsvp.find(params[:session][:user_code])
+    end
+    redirect_to new_session_path if @rsvp.nil?
   end
 
   # POST /rsvps

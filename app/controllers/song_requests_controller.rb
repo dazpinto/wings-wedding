@@ -1,6 +1,8 @@
 class SongRequestsController < ApplicationController
 
-  before_filter :has_session, :except =>[:index]
+  before_filter :has_session, :except =>[:index, :edit, :update, :destroy]
+
+  before_filter :authenticate_admin!, :only => [:edit, :update, :destroy]
 
   # GET /song_requests
   # GET /song_requests.json

@@ -1,5 +1,7 @@
 Wedding::Application.routes.draw do
 
+  devise_for :admins
+
   resources :session, :only=>[:new,:create, :destroy]
 
   resources :contact_us, :only=>[:new, :create]
@@ -8,7 +10,9 @@ Wedding::Application.routes.draw do
 
   get "pages/photos", :as=>'photos'
 
+  match "rsvps/reply" => "rsvps#reply"
   resources :rsvps
+
 
   resources :song_requests
 
