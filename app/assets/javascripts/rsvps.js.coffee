@@ -4,18 +4,18 @@
 $ ->
   $('#going').click (e) ->
     e.preventDefault()
-    $(@).addClass('btn-primary')
-    $('#not_going').removeClass('btn-primary')
+    $(@).addClass('btn-success')
+    $('#not_going').removeClass('btn-danger')
     $('#rsvp_coming').prop('checked',true)
 
   $('#not_going').click (e) ->
     e.preventDefault()
-    $(@).addClass('btn-primary')
-    $('#going').removeClass('btn-primary')
+    $(@).addClass('btn-danger')
+    $('#going').removeClass('btn-success')
     $('#rsvp_coming').prop('checked',false)
 
   $('#rsvp_coming').hide()
   if $('#rsvp_coming').prop('checked')
-    $('#going').addClass('btn-primary')
+    $('#going').addClass('btn-success')
   else
-    $('#not_going').addClass('btn-primary')
+    $('#not_going').addClass('btn-danger')

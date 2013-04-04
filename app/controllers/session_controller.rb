@@ -7,7 +7,12 @@ class SessionController < ApplicationController
 
     if @rsvp
       session[:user_code] = @rsvp.code
-      redirect_to rsvps_reply_path
+
+      if @rsvp.filled_in
+        redirect_to @rsvp
+      else
+        redirect_to rsvps_reply_path
+      end
     else
       redirect_to new_session_path, notice: 'Invitation code cannot be found'
     end

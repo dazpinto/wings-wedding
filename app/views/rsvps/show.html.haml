@@ -1,21 +1,16 @@
 - model_class = Rsvp
-.page-header
-  %h1=t '.title', :default => model_class.model_name.human
 
-%p
-  %strong= model_class.human_attribute_name(:names) + ':'
-  %br
-  = @rsvp.names
-%p
-  %strong= model_class.human_attribute_name(:coming) + ':'
-  %br
-  = @rsvp.coming
-%p
-  %strong= model_class.human_attribute_name(:guests) + ':'
-  %br
-  = @rsvp.guests
+.hero-unit
+  %h1
+    Thank you for replying
+  - if @rsvp.coming
+    %p 
+      We look forward to seeing you there
+      = @rsvp.names
+      - if @rsvp.guests > 0
+        = "with #{@rsvp.guests} guests"
+  - else
+    %p We are sorry you can't make it
 
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), rsvps_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_rsvp_path(@rsvp), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), rsvp_path(@rsvp), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  = link_to 'Edit RSVP', rsvps_reply_path, :class => 'btn btn-large btn-warning'
+  = link_to 'Request a song', song_requests_path, :class => 'btn btn-large btn-success'

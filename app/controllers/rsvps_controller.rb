@@ -2,7 +2,7 @@ class RsvpsController < ApplicationController
 
   before_filter :has_session, :only => [:show, :reply]
 
-  before_filter :authenticate_admin!, :only => [:index, :create, :destroy]
+  before_filter :authenticate_admin!, :except => [:show, :reply, :update]
 
   # GET /rsvps
   # GET /rsvps.json
@@ -43,12 +43,8 @@ class RsvpsController < ApplicationController
   end
 
   def reply
-
-    puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    puts params[:session][:user_code]
-
-    if params[:session] && params[:session][:user_code]
-      @rsvp = Rsvp.find(params[:session][:user_code])
+    if session && session[:user_code]
+      @rsvp = Rsvp.find(session[:user_code])
     end
     redirect_to new_session_path if @rsvp.nil?
   end
@@ -74,7 +70,6 @@ class RsvpsController < ApplicationController
   # PUT /rsvps/1.json
   def update
     @rsvp = Rsvp.find(params[:id])
-    @rsvp.filled_in = true
 
     respond_to do |format|
       if @rsvp.update_attributes(params[:rsvp])

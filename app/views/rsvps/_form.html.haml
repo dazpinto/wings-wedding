@@ -1,4 +1,6 @@
 = form_for @rsvp, :html => { :class => 'form-horizontal' } do |f|
+  - if action_name == "reply"
+    = f.hidden_field :filled_in, :value=>'t'
   .control-group
     = f.label :names, "Your name(s)", {:class => 'control-label'}
     .controls
