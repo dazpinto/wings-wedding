@@ -44,7 +44,7 @@ class RsvpsController < ApplicationController
 
   def reply
     if session && session[:user_code]
-      @rsvp = Rsvp.find(session[:user_code])
+      @rsvp = Rsvp.find_by_code(session[:user_code])
     end
     redirect_to new_session_path if @rsvp.nil?
   end
@@ -56,7 +56,6 @@ class RsvpsController < ApplicationController
 
     respond_to do |format|
       if @rsvp.save
-        NotificationsMailer.rsvp_received(@rsvp).deliver
         format.html { redirect_to @rsvp, notice: 'Rsvp was successfully created.' }
         format.json { render json: @rsvp, status: :created, location: @rsvp }
       else
@@ -73,6 +72,7 @@ class RsvpsController < ApplicationController
 
     respond_to do |format|
       if @rsvp.update_attributes(params[:rsvp])
+        NotificationsMailer.rsvp_received(@rsvp).deliver
         format.html { redirect_to @rsvp, notice: 'Rsvp was successfully updated.' }
         format.json { head :no_content }
       else
