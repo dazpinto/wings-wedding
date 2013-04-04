@@ -3,7 +3,7 @@ class SessionController < ApplicationController
   end
 
   def create
-    @rsvp = Rsvp.find_by_code(params[:session][:code])
+    @rsvp = Rsvp.find_by_code(session[:user_code])
 
     if @rsvp
       session[:user_code] = @rsvp.code
