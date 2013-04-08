@@ -11,6 +11,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :rsvps, 'RSVP', rsvps_reply_path
     primary.item :requests, 'Song requests', song_requests_path
     primary.item :contact, 'Contact Us', new_contact_u_path
+    primary.item :contact, 'RSVP Admin', rsvps_path, :if => Proc.new{ admin_signed_in? }
   end
 
 end

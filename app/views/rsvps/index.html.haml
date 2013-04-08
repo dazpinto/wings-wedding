@@ -8,7 +8,7 @@
       %th= model_class.human_attribute_name(:names)
       %th= model_class.human_attribute_name(:coming)
       %th= model_class.human_attribute_name(:guests)
-      %th= model_class.human_attribute_name(:created_at)
+      %th= model_class.human_attribute_name(:updated_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @rsvps.each do |rsvp|
@@ -17,7 +17,7 @@
         %td= rsvp.names
         %td= rsvp.coming
         %td= rsvp.guests
-        %td=l rsvp.created_at
+        %td=l rsvp.updated_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_rsvp_path(rsvp), :class => 'btn btn-mini'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), rsvp_path(rsvp), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'

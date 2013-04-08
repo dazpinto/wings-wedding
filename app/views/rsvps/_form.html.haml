@@ -8,14 +8,17 @@
   .control-group
     = f.label :coming, "Are you coming to the wedding?",{:class => 'control-label'}
     .controls
-      .btn-group
-        %button#going.btn.btn-large
-          %i.icon-ok
-            Yes
-        %button#not_going.btn.btn-large
-          %i.icon-remove
-            No
-      = f.check_box :coming, :class => 'check_box'
+      - if session[:user_code]
+        .btn-group
+          %button#going.btn.btn-large
+            %i.icon-ok
+              Yes
+          %button#not_going.btn.btn-large
+            %i.icon-remove
+              No
+        = f.check_box :coming, :class => 'check_box'
+      - else # is admin
+        = @rsvp.coming ? 'Yes' : 'No'
   .control-group
     = f.label :guests, "How many guests will you be bringing?",:class => 'control-label'
     .controls

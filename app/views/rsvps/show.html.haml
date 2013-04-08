@@ -6,7 +6,7 @@
   - if @rsvp.coming
     %p 
       We look forward to seeing you there
-      = @rsvp.names
+      /= @rsvp.names
       - if @rsvp.guests > 0
         = "with #{@rsvp.guests} guests"
   - else

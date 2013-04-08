@@ -1,6 +1,6 @@
 class RsvpsController < ApplicationController
 
-  before_filter :has_session, :only => [:show, :reply]
+  before_filter :has_session, :only => [:reply]
 
   before_filter :authenticate_admin!, :except => [:show, :reply, :update]
 
@@ -18,7 +18,13 @@ class RsvpsController < ApplicationController
   # GET /rsvps/1
   # GET /rsvps/1.json
   def show
-    @rsvp = Rsvp.find(params[:id])
+    if admin_signed_in?
+      @rsvp = Rsvp.find(params[:id])
+    elsif Rsvp.find_by_code(session[:user_code])
+      @rsvp = Rsvp.find_by_code(session[:user_code])
+    else
+      redirect_to new_session_path
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -72,8 +78,15 @@ class RsvpsController < ApplicationController
 
     respond_to do |format|
       if @rsvp.update_attributes(params[:rsvp])
-        NotificationsMailer.rsvp_received(@rsvp).deliver
-        format.html { redirect_to @rsvp, notice: 'Rsvp was successfully updated.' }
+        begin
+          NotificationsMailer.rsvp_received(@rsvp).deliver 
+        rescue
+        end
+        if admin_signed_in?
+          format.html { redirect_to rsvps_path, notice: 'Rsvp was successfully updated.' }
+        else  
+          format.html { redirect_to @rsvp, notice: 'Rsvp was successfully updated.' }
+        end
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
